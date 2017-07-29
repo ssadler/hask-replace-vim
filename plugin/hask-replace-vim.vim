@@ -10,4 +10,4 @@ fun! ModuleReplace(args) "{{{
     execute 'checkt'
 endfunction "}}}
 
-command! -nargs=* MoveModule call ModuleReplace( '<args'> )
+command! -nargs=* MoveModule call ModuleReplace( '<args>' )
