@@ -1,0 +1,36 @@
+*hask-replace* Vim wrapper for the 'hask-replace' executable
+                          _
+=====================================================================
+CONTENTS                                        *HaskReplaceContents*
+
+    1. Usage ..................................... ❘HaskReplaceUsage❘
+    2. Config ................................... ❘HaskReplaceConfig❘
+    3. License ................................. ❘HaskReplaceLicense❘
+
+=====================================================================
+Section 1: Usage                                   *HaskReplaceUsage*
+
+By default, hask-replace-vim provides two commands and a keybinding,
+viz.
+
+:MoveModule                                         *:HaskReplaceMod*
+    Call 'hr' on the given modules, viz. >
+        :MoveModule Data.Import Data.Packages
+<
+
+=====================================================================
+Section 2: Config                                 *HaskReplaceConfig*
+
+---------------------------------------------------------------------
+                                           *'g:hask_replace_options'*
+Values: String containing flags for 'hr'
+Default: ''
+
+To make 'hr' ask for confirmation before overwriting:  >
+    let g:hask_replace_exclude='--prompt'
+<
+
+=====================================================================
+Section 3: License                               *HaskReplaceLicense*
+
+This plugin is licensed under the BDS3 license. 

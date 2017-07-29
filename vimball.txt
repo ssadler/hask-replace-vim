@@ -1,0 +1,2 @@
+plugin/hask-replace-vim.vim
+doc/hask-replace-vim.txt
