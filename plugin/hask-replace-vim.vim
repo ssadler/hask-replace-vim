@@ -7,8 +7,9 @@ fun! ModuleReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '!hr module . ' . a:args
+    execute 'silent !hr module . ' . a:args
     execute 'checkt'
+    echo 'module moved successfully!'
 
 endfunction "}}}
 
@@ -16,8 +17,9 @@ fun! IdrisReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '!hr idris ' . a:args
+    execute 'silent !hr idris ' . a:args
     execute 'checkt'
+    echo 'module moved successfully!'
 
 endfunction "}}}
 
@@ -25,8 +27,9 @@ fun! ElmReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '!hr elm ' . a:args
+    execute 'silent !hr elm ' . a:args
     execute 'checkt'
+    echo 'module moved successfully!'
 
 endfunction "}}}
 
@@ -40,8 +43,9 @@ fun! ModuleDuplicate(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '!hr module . ' . current_module . ' ' . a:args . ' ' . '--copy'
+    execute 'silent !hr module . ' . current_module . ' ' . a:args . ' ' . '--copy'
     execute 'checkt'
+    echo 'module duplicated successfully!'
 
 endfunction "}}}
 
