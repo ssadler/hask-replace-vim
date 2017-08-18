@@ -7,7 +7,7 @@ fun! ModuleReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '!hr module ' . a:args
+    execute '!hr module . ' . a:args
     execute 'checkt'
 
 endfunction "}}}
@@ -40,7 +40,7 @@ fun! ModuleDuplicate(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '!hr module ' . current_module . ' ' . a:args . ' ' . '--copy'
+    execute '!hr module . ' . current_module . ' ' . a:args . ' ' . '--copy'
     execute 'checkt'
 
 endfunction "}}}
