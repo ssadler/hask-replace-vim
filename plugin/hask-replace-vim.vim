@@ -7,7 +7,7 @@ fun! ModuleReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '.!hr module ' . a:args
+    execute '!hr module ' . a:args
     execute 'checkt'
 
 endfunction "}}}
@@ -16,7 +16,7 @@ fun! IdrisReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '.!hr idris ' . a:args
+    execute '!hr idris ' . a:args
     execute 'checkt'
 
 endfunction "}}}
@@ -25,7 +25,7 @@ fun! ElmReplace(args) "{{{
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '.!hr elm ' . a:args
+    execute '!hr elm ' . a:args
     execute 'checkt'
 
 endfunction "}}}
@@ -36,11 +36,11 @@ fun! ModuleDuplicate(args) "{{{
     let current_file = expand('%')
     let pre_module = substitute(current_file, '\/', '.', 'g')
     let current_module = substitute(pre_module, '(src\.|\.hs)', '', 'g')
-    echo current_module
+    " echo current_module
 
     " write the buffer in case we overwrite it
     normal w!
-    execute '.!hr module ' . current_module . ' ' . a:args . ' ' . '--copy'
+    execute '!hr module ' . current_module . ' ' . a:args . ' ' . '--copy'
     execute 'checkt'
 
 endfunction "}}}
