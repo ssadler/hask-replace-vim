@@ -50,19 +50,6 @@ command! -nargs=* MoveIdris call IdrisReplace('<args>')
 command! -nargs=* MoveElm call ElmReplace('<args>')
 command! -nargs=1 Duplicate call ModuleDuplicate (<f-args>)
 
-error: The following required arguments were not provided:
-    <NEW_MODULE>
-
-USAGE:
-    hr module <PROJECT> <OLD_MODULE> <NEW_MODULE> --copy
-
-For more information try --help
-    <NEW_MODULE>
-
-USAGE:
-    hr module <PROJECT> <OLD_MODULE> <NEW_MODULE> --copy
-
-For more information try --help
 nnoremap <Plug>MoveElmMod :MoveElm
 nnoremap <Plug>MoveIdrisMod :MoveIdris
 nnoremap <Plug>DuplicateHaskellMod :Duplicate
