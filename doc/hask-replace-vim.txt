@@ -26,8 +26,8 @@ Section 2: Config                                 *HaskReplaceConfig*
 Values: String containing flags for 'hr'
 Default: ''
 
-To make 'hr' ask for confirmation before overwriting:  >
-    let g:hask_replace_exclude='--prompt'
+Stash changes before doing anything:  >
+    let g:hask_replace_exclude='--stash'
 <
 
 =====================================================================
