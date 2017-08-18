@@ -35,7 +35,7 @@ fun! ModuleDuplicate(args) "{{{
     " Get current file name and convert it to a 
     let current_file = expand('%')
     let pre_module = substitute(current_file, '\/', '.', 'g')
-    let current_module = substitute(pre_module, '(src\.|\.hs)', '', 'g')
+    let current_module = substitute(pre_module, 'src\.\|\.hs', '', 'g')
     " echo current_module
 
     " write the buffer in case we overwrite it
