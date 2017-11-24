@@ -48,7 +48,14 @@ fun! ModuleDuplicate(args) "{{{
 
 endfunction "}}}
 
-command! -nargs=* MoveMod call ModuleReplace('<args>')
-command! -nargs=* MoveIdris call IdrisReplace('<args>')
-command! -nargs=* MoveElm call ElmReplace('<args>')
-command! -nargs=1 Duplicate call ModuleDuplicate (<f-args>)
+augroup haskell
+    autocmd FileType haskell,hspec command! -nargs=* MoveMod call ModuleReplace('<args>')
+    autocmd FileType haskell,hspec command! -nargs=1 Duplicate call ModuleDuplicate (<f-args>)
+augroup END
+augroup idris
+    autocmd FileType idris command! -nargs=* MoveMod call IdrisReplace('<args>')
+augroup END
+augroup elm
+    autocmd FileType elm command! -nargs=* MoveMod call ElmReplace('<args>')
+augroup END
+
