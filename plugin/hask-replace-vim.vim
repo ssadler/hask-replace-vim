@@ -33,6 +33,17 @@ fun! ElmReplace(args) "{{{
 
 endfunction "}}}
 
+fun! PurescriptReplace(args) "{{{
+
+    " write the buffer in case we overwrite it
+    exec 'normal! w!'
+    execute 'silent !hr purescript ' . a:args
+    execute 'checkt'
+    echo 'module moved successfully!'
+
+endfunction "}}}
+
+
 fun! ModuleDuplicate(args) "{{{
 
     " Get current file name and convert it to a 
@@ -48,6 +59,22 @@ fun! ModuleDuplicate(args) "{{{
 
 endfunction "}}}
 
+fun! PurescriptDuplicate(args) "{{{
+
+    " Get current file name and convert it to a 
+    let current_file = expand('%')
+    let pre_module = substitute(current_file, '\/', '.', 'g')
+    let current_module = substitute(pre_module, 'src\.\|\.purs', '', 'g')
+
+    " write the buffer in case we overwrite it
+    exec 'normal! w!'
+    execute 'silent !hr purescript . ' . current_module . ' ' . a:args . ' ' . '--copy'
+    execute 'checkt'
+    echo 'module duplicated successfully!'
+
+endfunction "}}}
+
+
 augroup haskell
     autocmd FileType haskell,hspec command! -nargs=* MoveMod call ModuleReplace('<args>')
     autocmd FileType haskell,hspec command! -nargs=1 Duplicate call ModuleDuplicate (<f-args>)
@@ -58,4 +85,7 @@ augroup END
 augroup elm
     autocmd FileType elm command! -nargs=* MoveMod call ElmReplace('<args>')
 augroup END
-
+augroup purescript
+    autocmd FileType purescript command! -nargs=* MoveMod call PurescriptReplace('<args>')
+    autocmd FileType purescript command! -nargs=1 Duplicate call PurescriptDuplicate (<f-args>)
+augroup END
